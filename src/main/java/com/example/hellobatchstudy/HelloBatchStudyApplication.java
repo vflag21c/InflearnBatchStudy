@@ -7,7 +7,7 @@ import org.springframework.cloud.task.configuration.EnableTask;
 
 @EnableBatchProcessing
 @SpringBootApplication
-@EnableTask
+//@EnableTask
 public class HelloBatchStudyApplication {
 
     public static void main(String[] args) {
