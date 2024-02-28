@@ -27,5 +27,7 @@ spring:
   batch:
     jdbc:
       initialize-schema: always
-#    job:
+#      table-prefix: SYSTEM_  #테이블 PREFIX ( 기본 : BATCH_ )
+    job:
+      names: ${job.name:NONE}
 #      enabled: false #job자동실행 방지 - JobRunner Class Test
