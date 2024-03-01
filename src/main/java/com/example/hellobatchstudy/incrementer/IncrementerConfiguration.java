@@ -1,4 +1,4 @@
-package com.example.hellobatchstudy.validator;
+package com.example.hellobatchstudy.incrementer;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
@@ -10,9 +10,9 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@RequiredArgsConstructor
 //@Configuration
-public class ValidatorConfiguration {
+@RequiredArgsConstructor
+public class IncrementerConfiguration {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
@@ -21,7 +21,7 @@ public class ValidatorConfiguration {
     public Job batchJob() {
         return this.jobBuilderFactory.get("batchJob")
 //                .validator(new CustomJobParametersValidator()) // 커스텀하게 구성하여 사용할 수 있음
-                .validator(new DefaultJobParametersValidator(new String[]{"name"},new String[]{"year"})) // requiredKeys, optionalKeys
+                .incrementer(new CustomIncrementer())
                 .start(step1())
                 .next(step2())
                 .next(step3())
