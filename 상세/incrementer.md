@@ -16,3 +16,19 @@ public Job batchJob() {
             .build();
 }
 ```
+
+## *주의
+ 
+-  `RunIdIncrementer()` 사용 시, 이전 Job 실행 시 사용한 파라미터 중 하나가 누락되어도 여전히 파라미터는 재사용 됨
+
+### 최초 실행
+```
+--job.name=batchJob date=20240302 v=1
+```
+### 파라미터 제거 후 실행
+```
+job.name=batchJob date=20240302
+```
+### 결과
+> launched with the following parameters: [{date=20240302, run.id=2, v=1}]
+
