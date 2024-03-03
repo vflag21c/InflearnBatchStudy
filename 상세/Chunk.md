@@ -57,3 +57,7 @@ public Step chunkStep() {
 - ItemWriter 처리가 완료되면 Chunk 트랜잭션이 종료하게 되고 Step 반복문에서 ChunkOrientedTasklet 가 새롭게 실행된다
 - ItemWriter 는 Chunk Size 만큼 데이터를 Commit 처리 하기 때문에 Chunk size 는 곧 Commit Interval 이 된다
 - 기본 구현체로서 SimpleChunkProcessor 와 FaultTolerantChunkProcessor 가 있다
+
+## 아키텍처
+![img_24.png](img_24.png)
+![img_25.png](img_25.png)

@@ -31,3 +31,10 @@ spring:
     job:
       names: ${job.name:NONE}
 #      enabled: false #job자동실행 방지 - JobRunner Class Test
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
