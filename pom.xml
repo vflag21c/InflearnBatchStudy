@@ -52,6 +52,11 @@
             <version>2.3.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.batch</groupId>
+            <artifactId>spring-batch-integration</artifactId>
+        </dependency>
+
         <!-- Spring Boot 의존성 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
