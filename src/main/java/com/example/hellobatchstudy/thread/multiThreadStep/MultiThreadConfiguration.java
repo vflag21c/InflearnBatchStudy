@@ -1,4 +1,4 @@
-package com.example.hellobatchstudy.thread;
+package com.example.hellobatchstudy.thread.multiThreadStep;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
@@ -13,7 +13,6 @@ import org.springframework.batch.item.database.PagingQueryProvider;
 import org.springframework.batch.item.database.builder.JdbcPagingItemReaderBuilder;
 import org.springframework.batch.item.database.support.SqlPagingQueryProviderFactoryBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;

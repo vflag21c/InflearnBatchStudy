@@ -1,4 +1,4 @@
-package com.example.hellobatchstudy.thread;
+package com.example.hellobatchstudy.thread.multiThreadStep;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
