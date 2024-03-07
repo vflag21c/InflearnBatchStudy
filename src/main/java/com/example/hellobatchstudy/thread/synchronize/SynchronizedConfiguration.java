@@ -23,7 +23,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import javax.sql.DataSource;
 
-@Configuration
+//@Configuration
 @RequiredArgsConstructor
 public class SynchronizedConfiguration {
 

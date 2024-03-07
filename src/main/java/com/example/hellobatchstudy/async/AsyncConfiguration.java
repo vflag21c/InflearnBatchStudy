@@ -19,7 +19,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import java.util.Arrays;
 
 
-@Configuration
+//@Configuration
 @RequiredArgsConstructor
 public class AsyncConfiguration {
 
