@@ -99,3 +99,7 @@ return stepBuilderFactory.get("batchStep")
 .build();
 }
 ```
+
+![img_58.png](img_58.png)
+![img_59.png](img_59.png)
+![img_60.png](img_60.png)
