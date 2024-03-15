@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
-@Configuration
+//@Configuration
 public class RetryConfiguration2 {
 
     private final JobBuilderFactory jobBuilderFactory;

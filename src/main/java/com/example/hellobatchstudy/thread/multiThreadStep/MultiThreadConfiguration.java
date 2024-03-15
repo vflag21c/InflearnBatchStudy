@@ -40,10 +40,10 @@ public class MultiThreadConfiguration {
     @Bean
     public Step threadStep() throws Exception {
         return stepBuilderFactory.get("threadStep")
-                .chunk(100)
+                .chunk(2)
                 .reader(customItemReader())
                 .writer(list -> System.out.println("Thread : " + Thread.currentThread().getName() + ", write items : " + list.size()))
-                .taskExecutor(taskExecutor())
+//                .taskExecutor(taskExecutor())
                 .build();
     }
 
@@ -51,7 +51,7 @@ public class MultiThreadConfiguration {
     public JdbcPagingItemReader<Customer> customItemReader() throws Exception {
 
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("firstName", "A%");
+        parameters.put("username", "user%");
 
         return new JdbcPagingItemReaderBuilder<Customer>()
                 .name("jdbcPagingItemReader")
@@ -70,9 +70,9 @@ public class MultiThreadConfiguration {
         SqlPagingQueryProviderFactoryBean provider = new SqlPagingQueryProviderFactoryBean();
 
         provider.setDataSource(dataSource);
-        provider.setSelectClause("id, firstName, lastName, birthdate");
+        provider.setSelectClause("id, age, username");
         provider.setFromClause("from customer");
-        provider.setWhereClause("where firstName like :firstName");
+        provider.setWhereClause("where username like :username");
 
         Map<String, Order> sortKeys = new HashMap<>();
         sortKeys.put("id", Order.ASCENDING);
@@ -95,8 +95,8 @@ public class MultiThreadConfiguration {
     @Bean
     public TaskExecutor taskExecutor(){
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-        executor.setCorePoolSize(4);
-        executor.setMaxPoolSize(8);
+        executor.setCorePoolSize(10);
+        executor.setMaxPoolSize(15);
         executor.setThreadNamePrefix("multi-thread-");
         return executor;
     }
