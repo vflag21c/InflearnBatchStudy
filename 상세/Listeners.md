@@ -26,3 +26,11 @@
 - 인터페이스 방식
 ![img_62.png](img_62.png)
 ![img_63.png](img_63.png)
+
+## SkipListener
+
+![img_64.png](img_64.png)
+
+## RetryListener
+
+![img_65.png](img_65.png)

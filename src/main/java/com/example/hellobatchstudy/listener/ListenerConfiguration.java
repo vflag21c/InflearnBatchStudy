@@ -13,8 +13,6 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.sql.DataSource;
-
 @Configuration
 @RequiredArgsConstructor
 public class ListenerConfiguration {
@@ -28,7 +26,7 @@ public class ListenerConfiguration {
                 .incrementer(new RunIdIncrementer())
                 .start(step1())
                 .next(step2())
-                .listener(new CustomJobListener())
+                .listener(new TotalListener())                  //단일 Job 에 사용될 리스너들을 모아 관리 할 수 있음.
                 .build();
     }
 
@@ -41,7 +39,7 @@ public class ListenerConfiguration {
                         return RepeatStatus.FINISHED;
                     }
                 })
-                .listener(new AnnotationStepListener())
+                .listener(new TotalListener())
                 .build();
     }
 
