@@ -1,11 +1,15 @@
 package com.example.hellobatchstudy.jobrepository;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.repository.support.JobRepositoryFactoryBean;
+import org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean;
+import org.springframework.batch.support.transaction.ResourcelessTransactionManager;
 import org.springframework.boot.autoconfigure.batch.BasicBatchConfigurer;
 import org.springframework.boot.autoconfigure.batch.BatchProperties;
 import org.springframework.boot.autoconfigure.transaction.TransactionManagerCustomizers;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 
@@ -32,4 +36,13 @@ public class CustomBatchConfigure extends BasicBatchConfigurer {
 
         return factory.getObject(); // Proxy 객체가 생성됨 (트랜잭션 Advice 적용 등을 위해 AOP 기술 적용)
     }
+
+    //InMemory DB 사용
+//    @Override
+//    protected JobRepository createJobRepository(ResourcelessTransactionManager transactionManager) throws Exception {
+//        MapJobRepositoryFactoryBean factory = new MapJobRepositoryFactoryBean();
+//        factory.setTransactionManager(transactionManager); // ResourcelessTransactionManager 사용
+//        return factory.getObject();
+//    }
+
 }

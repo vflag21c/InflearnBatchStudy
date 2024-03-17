@@ -13,7 +13,7 @@ public Job batchJob() {
             .start(Step)                            // 처음 실행 할 Step, 최초 한번 설정, SimpleJobBuilder 반환
             .next(Step)                             // 다음에 실행 할 Step, 횟수는 제한 없음
             .incrementer(JobParametersIncrementer)  // JobParameter 의 값을 자동으로 증가
-            .preventRestart(true)                   // Job 의 재시작 가능 여부 설정, default : true
+            .preventRestart(true)                   // Job 의 재시작 가능 여부 설정, default : true ( job을 실패해도 재시작 불가 )
             .validator(JobParametersValidator)      // JobParameter를 실행하기 전에 검증
             .listener(JobExecutionListener)         // Job 라이프 사이클의 특정 시점에 콜백 제공 받도록 리스너 설정
             .build();                               // SimpleJob 생성
