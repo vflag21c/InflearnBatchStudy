@@ -32,6 +32,7 @@ public class CustomItemStreamReader implements ItemStreamReader<String> {
     }
 
     @Override
+    //최초 1회 호출
     public void open(ExecutionContext executionContext) throws ItemStreamException {
 
         if(executionContext.containsKey("index")) {
@@ -45,11 +46,13 @@ public class CustomItemStreamReader implements ItemStreamReader<String> {
     }
 
     @Override
+    // 현재 상태 저장 - chunk size 만큼 반복
     public void update(ExecutionContext executionContext) throws ItemStreamException {
         executionContext.put("index", index);
     }
 
     @Override
+    //종료 시 1회
     public void close() throws ItemStreamException {
         System.out.println("close");
     }
