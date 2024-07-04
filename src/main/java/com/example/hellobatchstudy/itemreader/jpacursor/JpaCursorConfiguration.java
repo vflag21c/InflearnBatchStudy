@@ -11,6 +11,9 @@ import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.database.builder.JpaCursorItemReaderBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.interceptor.DefaultTransactionAttribute;
+import org.springframework.transaction.interceptor.TransactionAttribute;
 
 import javax.persistence.EntityManagerFactory;
 import java.util.HashMap;
@@ -39,7 +42,16 @@ public class JpaCursorConfiguration {
                 .<Customer, Customer>chunk(2)
                 .reader(customItemReader())
                 .writer(customItemWriter())
+                .transactionAttribute(transactionAttribute())
                 .build();
+    }
+
+    //ISOLATION_READ_UNCOMMITTED
+    @Bean
+    public TransactionAttribute transactionAttribute() {
+        DefaultTransactionAttribute transactionAttribute = new DefaultTransactionAttribute();
+        transactionAttribute.setIsolationLevel(TransactionDefinition.ISOLATION_READ_UNCOMMITTED);
+        return transactionAttribute;
     }
 
     @Bean

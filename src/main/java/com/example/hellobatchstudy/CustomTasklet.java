@@ -1,6 +1,6 @@
 package com.example.hellobatchstudy;
 
-import org.springframework.batch.core.StepContribution;
+import  org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
